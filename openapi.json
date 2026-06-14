@@ -1,236 +1,362 @@
-{
-  "openapi": "3.0.3",
-  "info": {
-    "title": "MarketInsight S.A. Inventory and Mobile Hardware Scraper API",
-    "description": "Enterprise-grade microservice simulation REST API for MarketInsight S.A., providing fully structural cellphone catalog data scraped and unified from various retail competitors matching the institutional template of 'Tienda Amiga'. This service is prepared for transactional integration, data warehouse merging, and hardware competitive analysis.",
-    "version": "1.0.0",
-    "contact": {
-      "name": "MarketInsight Hardware Integrity Team",
-      "email": "hardware-integrity@marketinsight.corp"
-    }
+[
+  {
+    "title": "Celular Xiaomi Redmi 15 8+256gb Negro",
+    "price": "2.099,00 Bs.",
+    "quotes": "en 3 cuotas de 819 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/celular-xiaomi-redmi-15",
+    "Marca": "XIAOMI",
+    "Modelo": "Redmi 15",
+    "Color": "Negro",
+    "Diseno": "Delgado",
+    "Pantalla": "Pantalla DotDisplay FHD+ de 6,9\"",
+    "Resolucion": "2340 x 1080",
+    "Camara": "Cámara Frontal 8 MP / Cámara Principal 50 MP",
+    "Procesador": "Snapdragon® 685",
+    "Memoria": "Memoria RAM 8 GB | Almacenamiento 256 GB",
+    "Bateria": "7000 mAh",
+    "Sensores": "Sensor de proximidad virtual, Sensor de luz ambiental",
+    "Dimensiones": "17.15 x 7.94 x 0.79 cm",
+    "Peso": "224 g",
+    "Conectividad": "SIM 1 e híbrida (SIM o microSD)",
+    "Sistema_Operativo": "Android 14 (HyperOS)",
+    "Video": "1080p a 30 fps",
+    "Redes": "GSM/HSPA/LTE",
+    "Garantia": "12 Meses"
   },
-  "servers": [
-    {
-      "url": "/api",
-      "description": "Local proxy and service entrypoint"
-    }
-  ],
-  "paths": {
-    "/inventario": {
-      "get": {
-        "summary": "Retrieve unified cellphone catalog",
-        "description": "Fetches a collection of structural mobile phone records containing advanced specifications and retail mock prices mapped for MarketInsight S.A. matching standard competitive schema parameters.",
-        "parameters": [
-          {
-            "name": "marca",
-            "in": "query",
-            "description": "Filter items by manufacturer uppercase brand logo",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": ["APPLE", "SAMSUNG", "MOTOROLA", "XIAOMI", "ONEPLUS", "HONOR", "INFINIX", "TECNO"]
-            }
-          },
-          {
-            "name": "search",
-            "in": "query",
-            "description": "Fuzzy matching string to filter catalog by title, processor, or storage parameters",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful retrieval of structural unified cell phone database",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CellphoneProduct"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/health": {
-      "get": {
-        "summary": "Check API container health",
-        "description": "Returns operational status parameters of the MarketInsight S.A. microservice container instance.",
-        "responses": {
-          "200": {
-            "description": "Service is operational and matching standard execution times",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "string",
-                      "example": "online"
-                    },
-                    "service": {
-                      "type": "string",
-                      "example": "MarketInsight Inventory API"
-                    },
-                    "timestamp": {
-                      "type": "string",
-                      "format": "date-time"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+  {
+    "title": "CELULAR XIAOMI POCO F3 6GB RAM/128 GB COLOR NEGRO",
+    "price": "3.899,00 Bs.",
+    "quotes": "en 12 cuotas de 526 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/celular-xiaomi-poco-f3",
+    "Marca": "XIAOMI",
+    "Modelo": "Poco F3",
+    "Color": "Negro",
+    "Diseno": "Curvo Premium",
+    "Pantalla": "6.67 Pulgadas AMOLED 120 Hz",
+    "Resolucion": "1080 x 2400 px",
+    "Camara": "Principal: 48 MP f/1.8 - Frontal: 20 MP f/2.5",
+    "Procesador": "Qualcomm SM8250-AC Snapdragon 870 5G",
+    "Memoria": "RAM: 6GB | Almacenamiento: 128GB",
+    "Bateria": "Li-Po 4520 mAh",
+    "Sensores": "Huella dactilar (lateral), acelerómetro, giroscopio",
+    "Dimensiones": "163.7 x 76.4 x 7.8 mm",
+    "Peso": "196 g",
+    "Conectividad": "Bluetooth, Wi-Fi, NFC",
+    "Sistema_Operativo": "Android 11 Hypers OS",
+    "Video": "4K a 30 fps, 1080p a 60 fps",
+    "Redes": "GSM/HSPA/LTE/5G",
+    "Garantia": "12 Meses"
   },
-  "components": {
-    "schemas": {
-      "CellphoneProduct": {
-        "type": "object",
-        "required": [
-          "title",
-          "price",
-          "quotes",
-          "url",
-          "Marca",
-          "Modelo",
-          "Color",
-          "Diseno",
-          "Pantalla",
-          "Resolucion",
-          "Camara",
-          "Procesador",
-          "Memoria",
-          "Bateria",
-          "Sensores",
-          "Dimensiones",
-          "Peso",
-          "Conectividad",
-          "Sistema_Operativo",
-          "Video",
-          "Redes",
-          "Garantia"
-        ],
-        "properties": {
-          "title": {
-            "type": "string",
-            "description": "Full commercial title scraped from listing",
-            "example": "Celular Xiaomi Redmi 15 8+256gb Negro"
-          },
-          "price": {
-            "type": "string",
-            "description": "Retail checkout price matching actual currency representation",
-            "example": "2.099,00 Bs."
-          },
-          "quotes": {
-            "type": "string",
-            "description": "Available mock payment installment plan constraints",
-            "example": "en 3 cuotas de 819 Bs"
-          },
-          "url": {
-            "type": "string",
-            "description": "Direct listing link simulation",
-            "example": "https://www.tiendaamiga.com.bo/la_paz/celular-xiaomi-redmi-15"
-          },
-          "Marca": {
-            "type": "string",
-            "example": "XIAOMI"
-          },
-          "Modelo": {
-            "type": "string",
-            "description": "Specific device series model identifier",
-            "example": "15"
-          },
-          "Color": {
-            "type": "string",
-            "description": "Commercial color casing definition",
-            "example": "Negro"
-          },
-          "Diseno": {
-            "type": "string",
-            "description": "Form factor and build materials",
-            "example": "Delgado"
-          },
-          "Pantalla": {
-            "type": "string",
-            "description": "Screen panel engineering technology and size dimensions",
-            "example": "Pantalla DotDisplay FHD+ de 6,9\""
-          },
-          "Resolucion": {
-            "type": "string",
-            "description": "Pixel density and resolution stats",
-            "example": "2340 x 1080"
-          },
-          "Camara": {
-            "type": "string",
-            "description": "Camera layout configurations",
-            "example": "Cámara Frontal 8 MP Cámara Principal 50 MP"
-          },
-          "Procesador": {
-            "type": "string",
-            "description": "SoC chipset built into device",
-            "example": "Snapdragon® 685"
-          },
-          "Memoria": {
-            "type": "string",
-            "description": "Combined random-access memory and cold storage layout",
-            "example": "Memoria RAM 8 GB Almacenamiento 256 GB"
-          },
-          "Bateria": {
-            "type": "string",
-            "description": "Nominal power cell storage capacity",
-            "example": "7000 mAh"
-          },
-          "Sensores": {
-            "type": "string",
-            "description": "Included hardware sensors",
-            "example": "Sensor de proximidad virtual, Sensor de luz ambiental"
-          },
-          "Dimensiones": {
-            "type": "string",
-            "description": "Physical chassis height, width, and thickness parameters",
-            "example": "Alto 17.15 x Ancho 7.94 x Profundidad 0.79 cm"
-          },
-          "Peso": {
-            "type": "string",
-            "description": "Chassis weight",
-            "example": "224 g"
-          },
-          "Conectividad": {
-            "type": "string",
-            "description": "Scraped wireless frequency bands and standards supported",
-            "example": "SIM 1 e híbrida (SIM o microSD)"
-          },
-          "Sistema_Operativo": {
-            "type": "string",
-            "description": "Operating system and native major release version",
-            "example": "Android 11 Hypers OS"
-          },
-          "Video": {
-            "type": "string",
-            "description": "Video recording capabilities",
-            "example": "4K a 30 fps. 1080p a 30/60/120/240/960 fps"
-          },
-          "Redes": {
-            "type": "string",
-            "description": "Mobile network frequencies",
-            "example": "GSM/HSPA/LTE/5G"
-          },
-          "Garantia": {
-            "type": "string",
-            "description": "Official local consumer warranty coverage period",
-            "example": "12 Meses"
-          }
-        }
-      }
-    }
+  {
+    "title": "Celular Samsung Galaxy S24 Ultra 12+512gb Gris",
+    "price": "9.999,00 Bs.",
+    "quotes": "en 12 cuotas de 1050 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/samsung-galaxy-s24-ultra",
+    "Marca": "SAMSUNG",
+    "Modelo": "Galaxy S24 Ultra",
+    "Color": "Gris Titanio",
+    "Diseno": "Armor Titanium",
+    "Pantalla": "Dynamic AMOLED 2X de 6.8\"",
+    "Resolucion": "3120 x 1440 px",
+    "Camara": "Principal 200MP + 50MP + 12MP / Frontal 12MP",
+    "Procesador": "Snapdragon 8 Gen 3 for Galaxy",
+    "Memoria": "RAM 12GB | Almacenamiento 512GB",
+    "Bateria": "5000 mAh",
+    "Sensores": "Huella ultrasónica en pantalla, Giroscopio, Proximidad",
+    "Dimensiones": "162.3 x 79 x 8.6 mm",
+    "Peso": "232 g",
+    "Conectividad": "Wi-Fi 7, Bluetooth 5.3, UWB",
+    "Sistema_Operativo": "Android 14",
+    "Video": "8K a 30fps, 4K a 120fps",
+    "Redes": "5G/LTE/HSPA",
+    "Garantia": "12 Meses"
+  },
+  {
+    "title": "Apple iPhone 15 Pro Max 256GB Titanio",
+    "price": "11.499,00 Bs.",
+    "quotes": "en 12 cuotas de 1250 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/iphone-15-pro-max",
+    "Marca": "APPLE",
+    "Modelo": "iPhone 15 Pro Max",
+    "Color": "Titanio Natural",
+    "Diseno": "Titanio Aeroespacial",
+    "Pantalla": "Super Retina XDR OLED 6.7\"",
+    "Resolucion": "2796 x 1290 px",
+    "Camara": "Principal 48MP + 12MP + 12MP / Frontal 12MP",
+    "Procesador": "Apple A17 Pro",
+    "Memoria": "RAM 8GB | Almacenamiento 256GB",
+    "Bateria": "4422 mAh",
+    "Sensores": "Face ID, LiDAR, Barómetro, Giroscopio alto rango",
+    "Dimensiones": "159.9 x 76.7 x 8.3 mm",
+    "Peso": "221 g",
+    "Conectividad": "Wi-Fi 6E, Bluetooth 5.3, NFC",
+    "Sistema_Operativo": "iOS 17",
+    "Video": "4K a 60 fps ProRes",
+    "Redes": "5G/LTE",
+    "Garantia": "12 Meses"
+  },
+  {
+    "title": "Celular Motorola Edge 40 Neo 8GB+256GB Black",
+    "price": "2.499,00 Bs.",
+    "quotes": "en 6 cuotas de 480 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/motorola-edge-40-neo",
+    "Marca": "MOTOROLA",
+    "Modelo": "Edge 40 Neo",
+    "Color": "Black Beauty",
+    "Diseno": "Cuero Vegano / Curvo",
+    "Pantalla": "pOLED 6.55\" 144Hz",
+    "Resolucion": "1080 x 2400 px",
+    "Camara": "Principal 50MP + 13MP / Frontal 32MP",
+    "Procesador": "MediaTek Dimensity 7030",
+    "Memoria": "RAM 8GB | Almacenamiento 256GB",
+    "Bateria": "5000 mAh",
+    "Sensores": "Huella óptica en pantalla, Luz ambiental, Proximidad",
+    "Dimensiones": "159.6 x 72 x 7.9 mm",
+    "Peso": "172 g",
+    "Conectividad": "Wi-Fi 6E, Bluetooth 5.4, NFC",
+    "Sistema_Operativo": "Android 13",
+    "Video": "4K a 30fps",
+    "Redes": "5G/LTE",
+    "Garantia": "12 Meses"
+  },
+  {
+    "title": "Celular Samsung Galaxy A55 5G 8+256GB Awesome Navy",
+    "price": "3.299,00 Bs.",
+    "quotes": "en 6 cuotas de 620 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/galaxy-a55",
+    "Marca": "SAMSUNG",
+    "Modelo": "Galaxy A55",
+    "Color": "Awesome Navy",
+    "Diseno": "Marco de Metal y Cristal",
+    "Pantalla": "Super AMOLED 6.6\" 120Hz",
+    "Resolucion": "1080 x 2340 px",
+    "Camara": "Principal 50MP + 12MP + 5MP / Frontal 32MP",
+    "Procesador": "Exynos 1480",
+    "Memoria": "RAM 8GB | Almacenamiento 256GB",
+    "Bateria": "5000 mAh",
+    "Sensores": "Huella bajo pantalla, Giroscopio, Acelerómetro",
+    "Dimensiones": "161.1 x 77.4 x 8.2 mm",
+    "Peso": "213 g",
+    "Conectividad": "Wi-Fi 6, Bluetooth 5.3, NFC",
+    "Sistema_Operativo": "Android 14 (One UI 6.1)",
+    "Video": "4K a 30fps",
+    "Redes": "5G/LTE",
+    "Garantia": "12 Meses"
+  },
+  {
+    "title": "Xiaomi Redmi Note 13 Pro 4G 8GB/256GB Verde",
+    "price": "1.999,00 Bs.",
+    "quotes": "en 3 cuotas de 720 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/redmi-note-13-pro-4g",
+    "Marca": "XIAOMI",
+    "Modelo": "Redmi Note 13 Pro",
+    "Color": "Verde Bosque",
+    "Diseno": "Cristal Trasero Mate",
+    "Pantalla": "AMOLED 6.67\" 120Hz",
+    "Resolucion": "1080 x 2400 px",
+    "Camara": "Principal 200MP + 8MP + 2MP / Frontal 16MP",
+    "Procesador": "MediaTek Helio G99 Ultra",
+    "Memoria": "RAM 8GB | Almacenamiento 256GB",
+    "Bateria": "5000 mAh",
+    "Sensores": "Huella en pantalla, Brújula electrónica, Infrarrojo",
+    "Dimensiones": "161.1 x 74.9 x 7.9 mm",
+    "Peso": "188 g",
+    "Conectividad": "Wi-Fi ac, Bluetooth 5.2",
+    "Sistema_Operativo": "Android 13 (MIUI 14)",
+    "Video": "1080p a 60fps",
+    "Redes": "4G/LTE",
+    "Garantia": "12 Meses"
+  },
+  {
+    "title": "HONOR Magic 6 Lite 5G 8+256GB Emerald Green",
+    "price": "2.399,00 Bs.",
+    "quotes": "en 6 cuotas de 450 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/honor-magic-6-lite",
+    "Marca": "HONOR",
+    "Modelo": "Magic 6 Lite",
+    "Color": "Verde Esmeralda",
+    "Diseno": "Curvo Ultra Resistente",
+    "Pantalla": "AMOLED 6.78\" 120Hz",
+    "Resolucion": "1200 x 2652 px",
+    "Camara": "Principal 108MP + 5MP + 2MP / Frontal 16MP",
+    "Procesador": "Snapdragon 6 Gen 1",
+    "Memoria": "RAM 8GB | Almacenamiento 256GB",
+    "Bateria": "5300 mAh",
+    "Sensores": "Lector de huellas, Sensor de gravedad, Giroscopio",
+    "Dimensiones": "163.6 x 75.5 x 7.9 mm",
+    "Peso": "185 g",
+    "Conectividad": "Wi-Fi ac, Bluetooth 5.1",
+    "Sistema_Operativo": "MagicOS 7.2 (Basado en Android 13)",
+    "Video": "4K a 30fps",
+    "Redes": "5G/LTE",
+    "Garantia": "12 Meses"
+  },
+  {
+    "title": "Celular Apple iPhone 13 128GB Midnight",
+    "price": "4.999,00 Bs.",
+    "quotes": "en 12 cuotas de 520 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/iphone-13",
+    "Marca": "APPLE",
+    "Modelo": "iPhone 13",
+    "Color": "Midnight (Negro)",
+    "Diseno": "Ceramic Shield",
+    "Pantalla": "Super Retina XDR 6.1\"",
+    "Resolucion": "2532 x 1170 px",
+    "Camara": "Principal 12MP + 12MP / Frontal 12MP",
+    "Procesador": "Apple A15 Bionic",
+    "Memoria": "RAM 4GB | Almacenamiento 128GB",
+    "Bateria": "3240 mAh",
+    "Sensores": "Face ID, Acelerómetro, Giroscopio",
+    "Dimensiones": "146.7 x 71.5 x 7.6 mm",
+    "Peso": "174 g",
+    "Conectividad": "Wi-Fi 6, Bluetooth 5.0, NFC",
+    "Sistema_Operativo": "iOS 15 (Actualizable)",
+    "Video": "4K a 60fps, Modo Cine 1080p",
+    "Redes": "5G/LTE",
+    "Garantia": "12 Meses"
+  },
+  {
+    "title": "Samsung Galaxy A15 4G 6GB+128GB Azul Claro",
+    "price": "1.199,00 Bs.",
+    "quotes": "Sin cuotas",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/galaxy-a15",
+    "Marca": "SAMSUNG",
+    "Modelo": "Galaxy A15",
+    "Color": "Azul Claro",
+    "Diseno": "Clásico plástico mate",
+    "Pantalla": "Super AMOLED 6.5\" 90Hz",
+    "Resolucion": "1080 x 2340 px",
+    "Camara": "Principal 50MP + 5MP + 2MP / Frontal 13MP",
+    "Procesador": "MediaTek Helio G99",
+    "Memoria": "RAM 6GB | Almacenamiento 128GB",
+    "Bateria": "5000 mAh",
+    "Sensores": "Huella lateral, Sensor de luz virtual",
+    "Dimensiones": "160.1 x 76.8 x 8.4 mm",
+    "Peso": "200 g",
+    "Conectividad": "Wi-Fi ac, Bluetooth 5.3",
+    "Sistema_Operativo": "Android 14",
+    "Video": "1080p a 30fps",
+    "Redes": "4G/LTE",
+    "Garantia": "12 Meses"
+  },
+  {
+    "title": "Celular POCO X6 Pro 5G 12+512GB Amarillo",
+    "price": "2.899,00 Bs.",
+    "quotes": "en 6 cuotas de 530 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/poco-x6-pro",
+    "Marca": "XIAOMI",
+    "Modelo": "Poco X6 Pro",
+    "Color": "Amarillo (Cuero Vegano)",
+    "Diseno": "Deportivo Texturizado",
+    "Pantalla": "AMOLED 6.67\" 120Hz 1.5K",
+    "Resolucion": "1220 x 2712 px",
+    "Camara": "Principal 64MP OIS + 8MP + 2MP / Frontal 16MP",
+    "Procesador": "Dimensity 8300-Ultra",
+    "Memoria": "RAM 12GB | Almacenamiento 512GB",
+    "Bateria": "5000 mAh",
+    "Sensores": "Huella bajo pantalla, Motor lineal X-axis, Emisor IR",
+    "Dimensiones": "160.4 x 74.3 x 8.3 mm",
+    "Peso": "190 g",
+    "Conectividad": "Wi-Fi 6, Bluetooth 5.4, NFC",
+    "Sistema_Operativo": "HyperOS",
+    "Video": "4K a 30fps",
+    "Redes": "5G/LTE",
+    "Garantia": "12 Meses"
+  },
+  {
+    "title": "Motorola Moto G84 5G 8+256GB Viva Magenta",
+    "price": "1.899,00 Bs.",
+    "quotes": "en 3 cuotas de 680 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/moto-g84",
+    "Marca": "MOTOROLA",
+    "Modelo": "Moto G84",
+    "Color": "Viva Magenta",
+    "Diseno": "Cuero Vegano Ecológico",
+    "Pantalla": "pOLED 6.55\" 120Hz",
+    "Resolucion": "1080 x 2400 px",
+    "Camara": "Principal 50MP OIS + 8MP / Frontal 16MP",
+    "Procesador": "Snapdragon 695 5G",
+    "Memoria": "RAM 8GB | Almacenamiento 256GB",
+    "Bateria": "5000 mAh",
+    "Sensores": "Huella en pantalla, Luz ambiental, Brújula",
+    "Dimensiones": "160 x 74.4 x 7.6 mm",
+    "Peso": "166 g",
+    "Conectividad": "Wi-Fi ac, Bluetooth 5.1, Jack 3.5mm",
+    "Sistema_Operativo": "Android 13",
+    "Video": "1080p a 60fps",
+    "Redes": "5G/LTE",
+    "Garantia": "6 Meses"
+  },
+  {
+    "title": "Infinix Note 40 Pro 8+256GB Titan Gold",
+    "price": "1.799,00 Bs.",
+    "quotes": "en 3 cuotas de 650 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/infinix-note-40-pro",
+    "Marca": "INFINIX",
+    "Modelo": "Note 40 Pro",
+    "Color": "Titan Gold",
+    "Diseno": "Curvo con Anillo Halo",
+    "Pantalla": "AMOLED 6.78\" 120Hz",
+    "Resolucion": "1080 x 2436 px",
+    "Camara": "Principal 108MP OIS + 2MP + 2MP / Frontal 32MP",
+    "Procesador": "MediaTek Helio G99 Ultimate",
+    "Memoria": "RAM 8GB | Almacenamiento 256GB",
+    "Bateria": "5000 mAh",
+    "Sensores": "Huella óptica, Giroscopio, Brújula",
+    "Dimensiones": "164.3 x 74.5 x 8.1 mm",
+    "Peso": "190 g",
+    "Conectividad": "Wi-Fi ac, Bluetooth 5.2, NFC, MagCharge",
+    "Sistema_Operativo": "XOS 14 (Android 14)",
+    "Video": "2K a 30fps",
+    "Redes": "4G/LTE",
+    "Garantia": "12 Meses"
+  },
+  {
+    "title": "Celular TECNO Spark 20 Pro+ 8+256GB Temporal Orbits",
+    "price": "1.599,00 Bs.",
+    "quotes": "Sin cuotas",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/tecno-spark-20-pro-plus",
+    "Marca": "TECNO",
+    "Modelo": "Spark 20 Pro+",
+    "Color": "Temporal Orbits",
+    "Diseno": "Doble Curva 56.5°",
+    "Pantalla": "AMOLED 6.78\" 120Hz",
+    "Resolucion": "1080 x 2436 px",
+    "Camara": "Principal 108MP + Lente IA / Frontal 32MP con Flash Dual",
+    "Procesador": "MediaTek Helio G99 Ultimate",
+    "Memoria": "RAM 8GB | Almacenamiento 256GB",
+    "Bateria": "5000 mAh",
+    "Sensores": "Huella bajo pantalla, G-Sensor, Luz ambiental",
+    "Dimensiones": "164.6 x 75 x 7.5 mm",
+    "Peso": "179 g",
+    "Conectividad": "Wi-Fi ac, Bluetooth 5.2",
+    "Sistema_Operativo": "HiOS 13.6 (Android 14)",
+    "Video": "2K a 30fps",
+    "Redes": "4G/LTE",
+    "Garantia": "12 Meses"
+  },
+  {
+    "title": "Samsung Galaxy Z Flip5 8+256GB Mint",
+    "price": "6.499,00 Bs.",
+    "quotes": "en 12 cuotas de 680 Bs",
+    "url": "https://www.tiendaamiga.com.bo/la_paz/galaxy-z-flip-5",
+    "Marca": "SAMSUNG",
+    "Modelo": "Galaxy Z Flip5",
+    "Color": "Mint (Verde Menta)",
+    "Diseno": "Plegable Compacto (Armor Aluminum)",
+    "Pantalla": "Principal 6.7\" Dynamic AMOLED 2X / Exterior 3.4\" Super AMOLED",
+    "Resolucion": "2640 x 1080 px (Principal)",
+    "Camara": "Principal 12MP + 12MP UW / Frontal 10MP",
+    "Procesador": "Snapdragon 8 Gen 2 for Galaxy",
+    "Memoria": "RAM 8GB | Almacenamiento 256GB",
+    "Bateria": "3700 mAh",
+    "Sensores": "Huella lateral, Barómetro, Efecto Hall, Giroscopio",
+    "Dimensiones": "Abierto: 165.1 x 71.9 x 6.9 mm / Cerrado: 85.1 x 71.9 x 15.1 mm",
+    "Peso": "187 g",
+    "Conectividad": "Wi-Fi 6E, Bluetooth 5.3, NFC",
+    "Sistema_Operativo": "Android 13 (Actualizable)",
+    "Video": "4K a 60fps",
+    "Redes": "5G/LTE",
+    "Garantia": "12 Meses"
   }
-}
+]
