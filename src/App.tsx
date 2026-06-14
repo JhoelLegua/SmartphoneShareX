@@ -180,15 +180,15 @@ export default function App() {
                     <span className="text-slate-200">{selectedCell.Sistema_Operativo}</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-slate-500 text-[10px] uppercase">Cámara Principal</span>
+                    <span className="text-slate-500 text-[10px] uppercase">Cámara</span>
                     <span className="text-slate-200 text-[10px] leading-tight flex items-start gap-1">
                       <Camera className="h-3 w-3 text-amber-500 mt-0.5 shrink-0" />
-                      <span>{selectedCell.Camara_Principal}</span>
+                      <span>{selectedCell.Camara}</span>
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-slate-500 text-[10px] uppercase">Cámara Frontal</span>
-                    <span className="text-slate-200 text-[10px]">{selectedCell.Camara_Frontal}</span>
+                    <span className="text-slate-500 text-[10px] uppercase">Resolución</span>
+                    <span className="text-slate-200 text-[10px]">{selectedCell.Resolucion}</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-slate-500 text-[10px] uppercase">Conectividad Scraped</span>
@@ -198,30 +198,24 @@ export default function App() {
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-slate-500 text-[10px] uppercase">Resistencia / Protección</span>
+                    <span className="text-slate-500 text-[10px] uppercase">Sensores</span>
                     <span className="text-emerald-400 text-[10px] flex items-center gap-1">
-                      <Shield className="h-3 w-3 text-emerald-550 shrink-0" />
-                      <span>{selectedCell.Resistencia_Agua}</span>
+                      <Activity className="h-3 w-3 text-emerald-550 shrink-0" />
+                      <span>{selectedCell.Sensores}</span>
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-slate-500 text-[10px] uppercase">Carga Rápida</span>
+                    <span className="text-slate-500 text-[10px] uppercase">Redes / Bandas</span>
                     <span className="text-amber-400 text-[10px] flex items-center gap-1">
                       <Zap className="h-3 w-3 text-amber-550 shrink-0" />
-                      <span>{selectedCell.Carga_Rapida}</span>
+                      <span>{selectedCell.Redes}</span>
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-slate-500 text-[10px] uppercase">Tasa de Refresco</span>
+                    <span className="text-slate-500 text-[10px] uppercase">Video</span>
                     <span className="text-[#A78BFA] text-[10px] flex items-center gap-1">
                       <RefreshCw className="h-3 w-3 text-[#A78BFA] shrink-0" />
-                      <span>{selectedCell.Tasa_Refresco}</span>
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-[11px] border-t border-[#1F2937] pt-2 mt-1">
-                    <span className="text-slate-500 uppercase">Hardware NFC</span>
-                    <span className={`px-1.5 py-0.5 rounded text-[9px] uppercase font-bold ${selectedCell.Nfc ? "bg-emerald-900/30 text-emerald-400 border border-emerald-500/20" : "bg-rose-900/30 text-rose-400 border border-rose-500/20"}`}>
-                      {selectedCell.Nfc ? "Soportado" : "No tiene"}
+                      <span>{selectedCell.Video}</span>
                     </span>
                   </div>
                 </div>
@@ -229,7 +223,7 @@ export default function App() {
                 <div className="space-y-1 font-mono text-[11px]">
                   <div className="flex justify-between">
                     <span className="text-slate-500">Garantía:</span>
-                    <span className="text-slate-300 font-bold">{selectedCell.Garantía}</span>
+                    <span className="text-slate-300 font-bold">{selectedCell.Garantia}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500">Masa Física:</span>
@@ -433,7 +427,6 @@ export default function App() {
                                 <div className="text-slate-100 font-bold leading-tight">{cel.title}</div>
                                 <div className="text-blue-400 text-[10px] font-bold mt-1 uppercase tracking-wider flex items-center gap-1.5">
                                   <span className="px-1.5 py-0.5 bg-blue-950/40 text-blue-300 rounded border border-blue-900/30 font-semibold">{cel.Marca}</span>
-                                  {cel.Nfc && <span className="text-[9px] text-emerald-400 bg-emerald-950/20 px-1 rounded uppercase">NFC</span>}
                                 </div>
                               </td>
                               <td className="py-3 px-4">
@@ -452,14 +445,14 @@ export default function App() {
                               </td>
                               <td className="py-3 px-4 text-slate-300">
                                 <div className="truncate max-w-[170px] text-slate-200 text-[11px]" title={cel.Sistema_Operativo}>{cel.Sistema_Operativo}</div>
-                                <div className="text-slate-450 text-[10px] flex items-center gap-0.5" title={cel.Camara_Principal}>
+                                <div className="text-slate-450 text-[10px] flex items-center gap-0.5" title={cel.Camara}>
                                   <Camera className="h-2.5 w-2.5 text-amber-500" />
-                                  <span className="truncate max-w-[150px]">{cel.Camara_Principal}</span>
+                                  <span className="truncate max-w-[150px]">{cel.Camara}</span>
                                 </div>
                               </td>
                               <td className="py-3 px-4 text-slate-400 text-[11px]">
-                                <div className="flex items-center gap-1">🔋 {cel.Batería} <span className="text-[10px] text-blue-400">{cel.Tasa_Refresco}</span></div>
-                                <div className="text-[10px] text-slate-500 truncate max-w-[180px]">{cel.Carga_Rapida} • {cel.Resistencia_Agua}</div>
+                                <div className="flex items-center gap-1">🔋 {cel.Bateria}</div>
+                                <div className="text-[10px] text-slate-500 truncate max-w-[180px]">{cel.Sensores}</div>
                               </td>
                               <td className="py-3 px-4 text-right">
                                 <span className="text-blue-400 font-bold text-sm whitespace-nowrap">{cel.price}</span>
@@ -647,20 +640,19 @@ export default function App() {
                           <span className="pl-4 text-[#9CDCFE]">"Modelo"</span>: <span className="text-[#CE9178]">"{cel.Modelo}"</span>,<br />
                           <span className="pl-4 text-[#9CDCFE]">"Color"</span>: <span className="text-[#CE9178]">"{cel.Color}"</span>,<br />
                           <span className="pl-4 text-[#9CDCFE]">"Pantalla"</span>: <span className="text-[#CE9178]">"{cel.Pantalla}"</span>,<br />
+                          <span className="pl-4 text-[#9CDCFE]">"Resolucion"</span>: <span className="text-[#CE9178]">"{cel.Resolucion}"</span>,<br />
                           <span className="pl-4 text-[#9CDCFE]">"Procesador"</span>: <span className="text-[#CE9178]">"{cel.Procesador}"</span>,<br />
                           <span className="pl-4 text-[#9CDCFE]">"Memoria"</span>: <span className="text-[#CE9178]">"{cel.Memoria}"</span>,<br />
-                          <span className="pl-4 text-[#9CDCFE]">"Batería"</span>: <span className="text-[#CE9178]">"{cel.Batería}"</span>,<br />
+                          <span className="pl-4 text-[#9CDCFE]">"Bateria"</span>: <span className="text-[#CE9178]">"{cel.Bateria}"</span>,<br />
                           <span className="pl-4 text-[#9CDCFE]">"Dimensiones"</span>: <span className="text-[#CE9178]">"{cel.Dimensiones}"</span>,<br />
                           <span className="pl-4 text-[#9CDCFE]">"Peso"</span>: <span className="text-[#CE9178]">"{cel.Peso}"</span>,<br />
-                          <span className="pl-4 text-[#9CDCFE]">"Garantía"</span>: <span className="text-[#CE9178]">"{cel.Garantía}"</span>,<br />
+                          <span className="pl-4 text-[#9CDCFE]">"Garantia"</span>: <span className="text-[#CE9178]">"{cel.Garantia}"</span>,<br />
                           <span className="pl-4 text-[#9CDCFE]">"Sistema_Operativo"</span>: <span className="text-[#CE9178]">"{cel.Sistema_Operativo}"</span>,<br />
-                          <span className="pl-4 text-[#9CDCFE]">"Camara_Principal"</span>: <span className="text-[#CE9178]">"{cel.Camara_Principal}"</span>,<br />
-                          <span className="pl-4 text-[#9CDCFE]">"Camara_Frontal"</span>: <span className="text-[#CE9178]">"{cel.Camara_Frontal}"</span>,<br />
+                          <span className="pl-4 text-[#9CDCFE]">"Camara"</span>: <span className="text-[#CE9178]">"{cel.Camara}"</span>,<br />
                           <span className="pl-4 text-[#9CDCFE]">"Conectividad"</span>: <span className="text-[#CE9178]">"{cel.Conectividad}"</span>,<br />
-                          <span className="pl-4 text-[#9CDCFE]">"Resistencia_Agua"</span>: <span className="text-[#CE9178]">"{cel.Resistencia_Agua}"</span>,<br />
-                          <span className="pl-4 text-[#9CDCFE]">"Carga_Rapida"</span>: <span className="text-[#CE9178]">"{cel.Carga_Rapida}"</span>,<br />
-                          <span className="pl-4 text-[#9CDCFE]">"Nfc"</span>: <span className="text-teal-500">{cel.Nfc ? "true" : "false"}</span>,<br />
-                          <span className="pl-4 text-[#9CDCFE]">"Tasa_Refresco"</span>: <span className="text-[#CE9178]">"{cel.Tasa_Refresco}"</span><br />
+                          <span className="pl-4 text-[#9CDCFE]">"Sensores"</span>: <span className="text-[#CE9178]">"{cel.Sensores}"</span>,<br />
+                          <span className="pl-4 text-[#9CDCFE]">"Video"</span>: <span className="text-[#CE9178]">"{cel.Video}"</span>,<br />
+                          <span className="pl-4 text-[#9CDCFE]">"Redes"</span>: <span className="text-[#CE9178]">"{cel.Redes}"</span><br />
                           <span className="text-[#374151]">{"}"}</span>{idx < filteredCells.length - 1 ? "," : ""}<br />
                         </div>
                       ))}

@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "MarketInsight S.A. Inventory and Mobile Hardware Scraper API",
-    "description": "Enterprise-grade microservice simulation REST API for MarketInsight S.A., providing fully structural cellphone catalog data scraped and unified from various retail competitors (Amazon, eBay, Mercado Libre) matching the institutional template of 'Tienda Amiga'. This service is prepared for transactional integration, data warehouse merging, and hardware competitive analysis.",
+    "description": "Enterprise-grade microservice simulation REST API for MarketInsight S.A., providing fully structural cellphone catalog data scraped and unified from various retail competitors matching the institutional template of 'Tienda Amiga'. This service is prepared for transactional integration, data warehouse merging, and hardware competitive analysis.",
     "version": "1.0.0",
     "contact": {
       "name": "MarketInsight Hardware Integrity Team",
@@ -19,7 +19,7 @@
     "/inventario": {
       "get": {
         "summary": "Retrieve unified cellphone catalog",
-        "description": "Fetches a collection of exactly 20 highly structural mobile phone records containing advanced specifications and retail mock prices mapped for MarketInsight S.A. matching standard competitive schema parameters.",
+        "description": "Fetches a collection of structural mobile phone records containing advanced specifications and retail mock prices mapped for MarketInsight S.A. matching standard competitive schema parameters.",
         "parameters": [
           {
             "name": "marca",
@@ -28,7 +28,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": ["APPLE", "SAMSUNG", "MOTOROLA", "XIAOMI", "ONEPLUS"]
+              "enum": ["APPLE", "SAMSUNG", "MOTOROLA", "XIAOMI", "ONEPLUS", "HONOR", "INFINIX", "TECNO"]
             }
           },
           {
@@ -103,132 +103,131 @@
           "Marca",
           "Modelo",
           "Color",
+          "Diseno",
           "Pantalla",
+          "Resolucion",
+          "Camara",
           "Procesador",
           "Memoria",
-          "Batería",
+          "Bateria",
+          "Sensores",
           "Dimensiones",
           "Peso",
-          "Garantía",
-          "Sistema_Operativo",
-          "Camara_Principal",
-          "Camara_Frontal",
           "Conectividad",
-          "Resistencia_Agua",
-          "Carga_Rapida",
-          "Nfc",
-          "Tasa_Refresco"
+          "Sistema_Operativo",
+          "Video",
+          "Redes",
+          "Garantia"
         ],
         "properties": {
           "title": {
             "type": "string",
             "description": "Full commercial title scraped from listing",
-            "example": "Celular Samsung Galaxy S24 Ultra 12+512gb Gris"
+            "example": "Celular Xiaomi Redmi 15 8+256gb Negro"
           },
           "price": {
             "type": "string",
             "description": "Retail checkout price matching actual currency representation",
-            "example": "1,199.00 USD"
+            "example": "2.099,00 Bs."
           },
           "quotes": {
             "type": "string",
             "description": "Available mock payment installment plan constraints",
-            "example": "en 3 cuotas de 400 USD"
+            "example": "en 3 cuotas de 819 Bs"
           },
           "url": {
             "type": "string",
             "description": "Direct listing link simulation",
-            "example": "https://www.amazon.com/dp/B0CSB24ULTR"
+            "example": "https://www.tiendaamiga.com.bo/la_paz/celular-xiaomi-redmi-15"
           },
           "Marca": {
             "type": "string",
-            "enum": ["APPLE", "SAMSUNG", "MOTOROLA", "XIAOMI", "ONEPLUS"],
-            "example": "SAMSUNG"
+            "example": "XIAOMI"
           },
           "Modelo": {
             "type": "string",
             "description": "Specific device series model identifier",
-            "example": "Galaxy S24 Ultra"
+            "example": "15"
           },
           "Color": {
             "type": "string",
             "description": "Commercial color casing definition",
-            "example": "Titanio Gris"
+            "example": "Negro"
+          },
+          "Diseno": {
+            "type": "string",
+            "description": "Form factor and build materials",
+            "example": "Delgado"
           },
           "Pantalla": {
             "type": "string",
             "description": "Screen panel engineering technology and size dimensions",
-            "example": "Dynamic AMOLED 2X de 6.8\""
+            "example": "Pantalla DotDisplay FHD+ de 6,9\""
+          },
+          "Resolucion": {
+            "type": "string",
+            "description": "Pixel density and resolution stats",
+            "example": "2340 x 1080"
+          },
+          "Camara": {
+            "type": "string",
+            "description": "Camera layout configurations",
+            "example": "Cámara Frontal 8 MP Cámara Principal 50 MP"
           },
           "Procesador": {
             "type": "string",
             "description": "SoC chipset built into device",
-            "example": "Snapdragon 8 Gen 3"
+            "example": "Snapdragon® 685"
           },
           "Memoria": {
             "type": "string",
             "description": "Combined random-access memory and cold storage layout",
-            "example": "Memoria RAM 12 GB | Almacenamiento 512 GB"
+            "example": "Memoria RAM 8 GB Almacenamiento 256 GB"
           },
-          "Batería": {
+          "Bateria": {
             "type": "string",
             "description": "Nominal power cell storage capacity",
-            "example": "5000 mAh"
+            "example": "7000 mAh"
+          },
+          "Sensores": {
+            "type": "string",
+            "description": "Included hardware sensors",
+            "example": "Sensor de proximidad virtual, Sensor de luz ambiental"
           },
           "Dimensiones": {
             "type": "string",
             "description": "Physical chassis height, width, and thickness parameters",
-            "example": "162.3 x 79 x 8.6 mm"
+            "example": "Alto 17.15 x Ancho 7.94 x Profundidad 0.79 cm"
           },
           "Peso": {
             "type": "string",
-            "description": "Chassis weight in grams",
-            "example": "232 g"
-          },
-          "Garantía": {
-            "type": "string",
-            "description": "Official local consumer warranty coverage period",
-            "example": "12 Meses"
-          },
-          "Sistema_Operativo": {
-            "type": "string",
-            "description": "Operating system and native major release version",
-            "example": "Android 14 (One UI 6.1)"
-          },
-          "Camara_Principal": {
-            "type": "string",
-            "description": "Rear primary camera sensor layout configurations",
-            "example": "Quad: 200 MP + 50 MP + 12 MP + 10 MP"
-          },
-          "Camara_Frontal": {
-            "type": "string",
-            "description": "Selfie camera resolution and tech parameters",
-            "example": "Single: 12 MP Dual Pixel PDAF"
+            "description": "Chassis weight",
+            "example": "224 g"
           },
           "Conectividad": {
             "type": "string",
             "description": "Scraped wireless frequency bands and standards supported",
-            "example": "5G, Wi-Fi 7, Bluetooth 5.3, Ultra Wideband (UWB)"
+            "example": "SIM 1 e híbrida (SIM o microSD)"
           },
-          "Resistencia_Agua": {
+          "Sistema_Operativo": {
             "type": "string",
-            "description": "Dust and water resistance IP ingress protection mapping",
-            "example": "IP68 dust/water resistant (up to 1.5m for 30 min)"
+            "description": "Operating system and native major release version",
+            "example": "Android 11 Hypers OS"
           },
-          "Carga_Rapida": {
+          "Video": {
             "type": "string",
-            "description": "Fast battery charging capability and wireless charging stats",
-            "example": "45W Wired, QC3.0, 15W Wireless (Qi/PMA)"
+            "description": "Video recording capabilities",
+            "example": "4K a 30 fps. 1080p a 30/60/120/240/960 fps"
           },
-          "Nfc": {
-            "type": "boolean",
-            "description": "Near-field communication hardware chip state",
-            "example": true
-          },
-          "Tasa_Refresco": {
+          "Redes": {
             "type": "string",
-            "description": "Adaptive refresh speed capability of the panel screen",
-            "example": "120 Hz LTPO dynamic refresh"
+            "description": "Mobile network frequencies",
+            "example": "GSM/HSPA/LTE/5G"
+          },
+          "Garantia": {
+            "type": "string",
+            "description": "Official local consumer warranty coverage period",
+            "example": "12 Meses"
           }
         }
       }
