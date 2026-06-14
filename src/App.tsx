@@ -116,7 +116,7 @@ export default function App() {
           <div className="hidden sm:block h-8 w-[1px] bg-[#1F2937]"></div>
           <div className="flex gap-2">
             <a
-              href="/openapi.json"
+              href={`${import.meta.env.BASE_URL}openapi.json`}
               target="_blank"
               rel="noreferrer"
               className="px-3 py-1.5 bg-[#1F2937] hover:bg-slate-700 border border-[#374151] rounded text-xs transition-all font-mono font-medium flex items-center gap-1.5 text-slate-300"
@@ -126,7 +126,7 @@ export default function App() {
               <span>openapi.json</span>
             </a>
             <a
-              href="/api/inventario"
+              href={`${import.meta.env.BASE_URL}openapi.json`}
               target="_blank"
               rel="noreferrer"
               className="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 border border-blue-500 rounded text-xs transition-all font-mono font-medium flex items-center gap-1.5 text-white shadow-[0_0_15px_rgba(37,99,235,0.3)]"
