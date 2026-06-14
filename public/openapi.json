@@ -1,0 +1,237 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MarketInsight S.A. Inventory and Mobile Hardware Scraper API",
+    "description": "Enterprise-grade microservice simulation REST API for MarketInsight S.A., providing fully structural cellphone catalog data scraped and unified from various retail competitors (Amazon, eBay, Mercado Libre) matching the institutional template of 'Tienda Amiga'. This service is prepared for transactional integration, data warehouse merging, and hardware competitive analysis.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "MarketInsight Hardware Integrity Team",
+      "email": "hardware-integrity@marketinsight.corp"
+    }
+  },
+  "servers": [
+    {
+      "url": "/api",
+      "description": "Local proxy and service entrypoint"
+    }
+  ],
+  "paths": {
+    "/inventario": {
+      "get": {
+        "summary": "Retrieve unified cellphone catalog",
+        "description": "Fetches a collection of exactly 20 highly structural mobile phone records containing advanced specifications and retail mock prices mapped for MarketInsight S.A. matching standard competitive schema parameters.",
+        "parameters": [
+          {
+            "name": "marca",
+            "in": "query",
+            "description": "Filter items by manufacturer uppercase brand logo",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["APPLE", "SAMSUNG", "MOTOROLA", "XIAOMI", "ONEPLUS"]
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Fuzzy matching string to filter catalog by title, processor, or storage parameters",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of structural unified cell phone database",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CellphoneProduct"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Check API container health",
+        "description": "Returns operational status parameters of the MarketInsight S.A. microservice container instance.",
+        "responses": {
+          "200": {
+            "description": "Service is operational and matching standard execution times",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "online"
+                    },
+                    "service": {
+                      "type": "string",
+                      "example": "MarketInsight Inventory API"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CellphoneProduct": {
+        "type": "object",
+        "required": [
+          "title",
+          "price",
+          "quotes",
+          "url",
+          "Marca",
+          "Modelo",
+          "Color",
+          "Pantalla",
+          "Procesador",
+          "Memoria",
+          "Batería",
+          "Dimensiones",
+          "Peso",
+          "Garantía",
+          "Sistema_Operativo",
+          "Camara_Principal",
+          "Camara_Frontal",
+          "Conectividad",
+          "Resistencia_Agua",
+          "Carga_Rapida",
+          "Nfc",
+          "Tasa_Refresco"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Full commercial title scraped from listing",
+            "example": "Celular Samsung Galaxy S24 Ultra 12+512gb Gris"
+          },
+          "price": {
+            "type": "string",
+            "description": "Retail checkout price matching actual currency representation",
+            "example": "1,199.00 USD"
+          },
+          "quotes": {
+            "type": "string",
+            "description": "Available mock payment installment plan constraints",
+            "example": "en 3 cuotas de 400 USD"
+          },
+          "url": {
+            "type": "string",
+            "description": "Direct listing link simulation",
+            "example": "https://www.amazon.com/dp/B0CSB24ULTR"
+          },
+          "Marca": {
+            "type": "string",
+            "enum": ["APPLE", "SAMSUNG", "MOTOROLA", "XIAOMI", "ONEPLUS"],
+            "example": "SAMSUNG"
+          },
+          "Modelo": {
+            "type": "string",
+            "description": "Specific device series model identifier",
+            "example": "Galaxy S24 Ultra"
+          },
+          "Color": {
+            "type": "string",
+            "description": "Commercial color casing definition",
+            "example": "Titanio Gris"
+          },
+          "Pantalla": {
+            "type": "string",
+            "description": "Screen panel engineering technology and size dimensions",
+            "example": "Dynamic AMOLED 2X de 6.8\""
+          },
+          "Procesador": {
+            "type": "string",
+            "description": "SoC chipset built into device",
+            "example": "Snapdragon 8 Gen 3"
+          },
+          "Memoria": {
+            "type": "string",
+            "description": "Combined random-access memory and cold storage layout",
+            "example": "Memoria RAM 12 GB | Almacenamiento 512 GB"
+          },
+          "Batería": {
+            "type": "string",
+            "description": "Nominal power cell storage capacity",
+            "example": "5000 mAh"
+          },
+          "Dimensiones": {
+            "type": "string",
+            "description": "Physical chassis height, width, and thickness parameters",
+            "example": "162.3 x 79 x 8.6 mm"
+          },
+          "Peso": {
+            "type": "string",
+            "description": "Chassis weight in grams",
+            "example": "232 g"
+          },
+          "Garantía": {
+            "type": "string",
+            "description": "Official local consumer warranty coverage period",
+            "example": "12 Meses"
+          },
+          "Sistema_Operativo": {
+            "type": "string",
+            "description": "Operating system and native major release version",
+            "example": "Android 14 (One UI 6.1)"
+          },
+          "Camara_Principal": {
+            "type": "string",
+            "description": "Rear primary camera sensor layout configurations",
+            "example": "Quad: 200 MP + 50 MP + 12 MP + 10 MP"
+          },
+          "Camara_Frontal": {
+            "type": "string",
+            "description": "Selfie camera resolution and tech parameters",
+            "example": "Single: 12 MP Dual Pixel PDAF"
+          },
+          "Conectividad": {
+            "type": "string",
+            "description": "Scraped wireless frequency bands and standards supported",
+            "example": "5G, Wi-Fi 7, Bluetooth 5.3, Ultra Wideband (UWB)"
+          },
+          "Resistencia_Agua": {
+            "type": "string",
+            "description": "Dust and water resistance IP ingress protection mapping",
+            "example": "IP68 dust/water resistant (up to 1.5m for 30 min)"
+          },
+          "Carga_Rapida": {
+            "type": "string",
+            "description": "Fast battery charging capability and wireless charging stats",
+            "example": "45W Wired, QC3.0, 15W Wireless (Qi/PMA)"
+          },
+          "Nfc": {
+            "type": "boolean",
+            "description": "Near-field communication hardware chip state",
+            "example": true
+          },
+          "Tasa_Refresco": {
+            "type": "string",
+            "description": "Adaptive refresh speed capability of the panel screen",
+            "example": "120 Hz LTPO dynamic refresh"
+          }
+        }
+      }
+    }
+  }
+}

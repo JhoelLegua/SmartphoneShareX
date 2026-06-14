@@ -1,0 +1,6 @@
+{
+  "name": "MarketInsight Cellphone API",
+  "description": "Microservicio web empresarial y panel de control de inventario de celulares (API REST con especificación OpenAPI) para MarketInsight S.A.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
